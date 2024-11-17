@@ -14,3 +14,12 @@ class UserSerializer(serializers.ModelSerializer):
             password=validated_data['password']
         )
         return user
+# serializers.py
+from rest_framework import serializers
+from .models import Property
+
+class PropertySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Property
+        fields = '__all__'
+

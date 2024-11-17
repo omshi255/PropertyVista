@@ -1,0 +1,192 @@
+/* Footer Container */
+.footer {
+    background-color: #333333;
+    color: #fff;
+    padding: 50px 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Branding Section */
+  .footer-brand {
+    flex: 1 1 300px;
+  }
+  
+  .footer-brand h2 {
+    font-size: 1.8rem;
+    color: #f57c00;
+  }
+  
+  .footer-brand p {
+    font-size: 1rem;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+  
+  /* Navigation Section */
+  .footer-nav {
+    flex: 1 1 200px;
+  }
+  
+  .footer-nav h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .footer-nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-nav li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-nav a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-nav a:hover {
+    color: #f57c00;
+  }
+  
+  /* Social Media Section */
+  .footer-social {
+    flex: 1 1 200px;
+  }
+  
+  .footer-social h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-icons a {
+    font-size: 24px;
+    color: #ccc;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #f57c00;
+    transform: scale(1.2);
+  }
+  
+  /* Contact Section */
+  .footer-contact {
+    flex: 1 1 300px;
+  }
+  
+  .footer-contact h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .footer-contact ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-contact li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+  }
+  
+  .footer-contact svg {
+    color: #f57c00;
+  }
+  
+  /* Bottom Section */
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+    }
+  
+    .footer-brand, .footer-nav, .footer-social, .footer-contact {
+      flex: 1 1 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer {
+      padding: 30px 10px;
+    }
+  
+    .footer-brand h2 {
+      font-size: 1.5rem;
+    }
+  
+    .footer-nav h4, .footer-social h4, .footer-contact h4 {
+      font-size: 1rem;
+    }
+  
+    .footer-contact li {
+      font-size: 0.85rem;
+    }
+  
+    .social-icons a {
+      font-size: 20px;
+    }
+  }
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-icons a {
+    font-size: 24px;
+    color: #ccc; /* Default icon color */
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Individual Icon Hover Colors */
+  .social-icons a:hover:nth-child(1) {
+    color: #4267B2; /* Facebook Blue */
+  }
+  
+  .social-icons a:hover:nth-child(2) {
+    color: #1DA1F2; /* Twitter Blue */
+  }
+  
+  .social-icons a:hover:nth-child(3) {
+    color: #0A66C2; /* LinkedIn Blue */
+  }
+  
+  .social-icons a:hover:nth-child(4) {
+    color: #E1306C; /* Instagram Pink */
+  }
+  

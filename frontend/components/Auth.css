@@ -94,5 +94,55 @@
   .auth-heading:hover {
     color: #ff6347;
   }
-  
-  
+
+.Toastify__toast--success {
+  background-color: #28a745; 
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.Toastify__toast--error {
+  background-color: #dc3545; 
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+
+@media (max-width: 768px) {
+  .Toastify__toast--success,
+  .Toastify__toast--error {
+    font-size: 14px;  
+    padding: 8px 12px;  
+  }
+}
+
+@media (max-width: 480px) {
+  .Toastify__toast--success,
+  .Toastify__toast--error {
+    font-size: 12px; 
+    padding: 6px 10px;  
+  }
+}
+
+
+@media (max-width: 768px) {
+  .Toastify__toast-container {
+    top: 10px; 
+    left: 50%;  
+    transform: translateX(-50%);  
+  }
+}
+
+@media (max-width: 480px) {
+  .Toastify__toast-container {
+    top: 8px;  
+    left: 50%;  
+    transform: translateX(-50%);  
+  }
+}
+
+

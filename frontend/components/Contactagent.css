@@ -1,0 +1,116 @@
+.agent-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .agent-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .agent-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .agent-image {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+    border: 1px solid #ff6347;
+    border-radius: 50%;
+  }
+  
+  .agent-info {
+    padding: 15px;
+  }
+  
+  .agent-info h3 {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .agent-info p {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .agent-rating {
+    font-size: 0.9rem;
+    color: #f39c12;
+    margin: 10px 0;
+  }
+  
+  .contact-info p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .contact-button {
+    background-color: #ff6347; /* Orange background */
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .contact-button:hover {
+    background-color: #f39c12;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .agent-card {
+      width: 45%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .agent-card {
+      width: 100%;
+    }
+  
+    .agent-info h3 {
+      font-size: 1rem;
+    }
+  
+    .agent-info p {
+      font-size: 0.9rem;
+    }
+  
+    .contact-button {
+      font-size: 0.9rem;
+      padding: 8px 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .agent-cards-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .agent-card {
+      width: 100%;
+      margin: 0 auto;
+    }
+  
+    .contact-button {
+      padding: 10px 15px;
+      font-size: 1rem;
+    }
+  }
+  
