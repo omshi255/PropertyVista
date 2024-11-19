@@ -99,3 +99,13 @@ def get_agents(request):
         agent_list.append(agent_data)
 
     return JsonResponse(agent_list, safe=False)
+#logout
+from django.contrib.auth import logout
+from django.http import JsonResponse
+
+def user_logout(request):
+    """
+    Log the user out and return a response.
+    """
+    logout(request)  # This will log the user out
+    return JsonResponse({"message": "Successfully logged out!"}, status=200)

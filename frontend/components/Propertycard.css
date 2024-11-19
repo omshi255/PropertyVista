@@ -1,4 +1,4 @@
-.property-cards-container {
+/* .property-cards-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -149,7 +149,7 @@
   --icon-circle-border: 1px solid var(--icon-primary-color);
   --icon-circle-size: 35px;
   --icon-anmt-duration: 0.3s;
-  /* border: 1px solid red; */
+ 
 }
 
 .ui-like input {
@@ -220,7 +220,7 @@
   opacity: 0;
 }
 
-/* actions */
+
 
 .property-card .like {
   fill: var(--icon-hover-color);
@@ -368,7 +368,7 @@
   left: 0;
   width: 60%;
   height: 3px;
-  background-color: #ff6347; /* Accent color */
+  background-color: #ff6347; 
   border-radius: 2px;
 }
 
@@ -376,38 +376,342 @@
   margin-top: 10px;
   width: 50px;
   height: 3px;
-  background-color: #ff6347; /* Accent color */
+  background-color: #ff6347; 
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) { /* Tablet screen and below */
+
+@media (max-width: 768px) { 
   .heading-title {
-    font-size: 28px; /* Slightly smaller font size for smaller screens */
-    letter-spacing: 1px; /* Reduce letter-spacing for better readability */
+    font-size: 28px; 
+    letter-spacing: 1px; 
   }
 
   .heading-title::after {
-    width: 50%; /* Reduce underline width */
+    width: 50%; 
   }
 
   .underline {
-    width: 40px; /* Smaller width for the underline */
+    width: 40px; 
   }
 }
 
-@media (max-width: 480px) { /* Mobile screens */
+@media (max-width: 480px) { 
   .heading-title {
-    font-size: 24px; /* Further reduce font size on mobile */
-    letter-spacing: 0; /* Remove letter-spacing for mobile */
+    font-size: 24px;
+    letter-spacing: 0; 
   }
 
   .heading-title::after {
-    width: 40%; /* Even smaller underline on mobile */
+    width: 40%; 
   }
 
   .underline {
-    width: 30px; /* Smaller underline for mobile */
+    width: 30px; 
+  }
+} */
+.property-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px !important;
+  /* background-color: red; */
+  justify-content: center;
+}
+
+.property-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px ;
+  min-width: 200px !important;
+  max-width: 400px !important;
+  height:380px;
+  margin: 0px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #fff, #f8f9fa);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.property-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.imgBox{
+  /* border: 2px solid red; */
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.property-image {
+  width: 100%;
+  
+  /* object-fit: cover; */
+}
+
+.property-card h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.property-card p {
+  font-size: 14px;
+  line-height: 16px;
+  color: #555;
+  margin: 0px;
+  margin-top: 5px;
+}
+
+.cardDis{
+  height: 32px;
+
+}
+
+.wishlist-button {
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  /* position: fixed; */
+  /* bottom: -10px; */
+}
+
+.wishlist-button:hover {
+  background-color: #ff4500;
+}
+
+.heading-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.heading-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+}
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures equal spacing between items */
+  gap: 10px;
+   /* Adds a gap between the button and the like icon */
+}
+
+.underline {
+  width: 60px;
+  height: 4px;
+  background: #ff6347;
+  margin: 10px auto;
+  border-radius: 2px;
+}
+/* From Uiverse.io by Yaya12085 */ 
+.ui-like {
+  --icon-size: 24px;
+  --icon-secondary-color: #b7b6b6;
+  --icon-hover-color: rgb(211, 205, 205);
+  --icon-primary-color: rgb(230, 26, 26);
+  --icon-circle-border: 1px solid var(--icon-primary-color);
+  --icon-circle-size: 35px;
+  --icon-anmt-duration: 0.3s;
+}
+
+.ui-like input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+.ui-like .like {
+  width: var(--icon-size);
+  height: auto;
+  fill: var(--icon-secondary-color);
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  -webkit-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
+}
+
+.like::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  -webkit-box-shadow: 0 30px 0 -4px var(--icon-primary-color),
+    30px 0 0 -4px var(--icon-primary-color),
+    0 -30px 0 -4px var(--icon-primary-color),
+    -30px 0 0 -4px var(--icon-primary-color),
+    -22px 22px 0 -4px var(--icon-primary-color),
+    -22px -22px 0 -4px var(--icon-primary-color),
+    22px -22px 0 -4px var(--icon-primary-color),
+    22px 22px 0 -4px var(--icon-primary-color);
+  box-shadow: 0 30px 0 -4px var(--icon-primary-color),
+    30px 0 0 -4px var(--icon-primary-color),
+    0 -30px 0 -4px var(--icon-primary-color),
+    -30px 0 0 -4px var(--icon-primary-color),
+    -22px 22px 0 -4px var(--icon-primary-color),
+    -22px -22px 0 -4px var(--icon-primary-color),
+    22px -22px 0 -4px var(--icon-primary-color),
+    22px 22px 0 -4px var(--icon-primary-color);
+  border-radius: 50%;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  
+}
+
+.like::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: var(--icon-circle-border);
+  opacity: 0;
+  
+}
+
+/* actions */
+
+.ui-like:hover .like {
+  fill: var(--icon-hover-color);
+}
+
+.ui-like input:checked + .like::after {
+  -webkit-animation: circles var(--icon-anmt-duration)
+    cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation: circles var(--icon-anmt-duration)
+    cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  -webkit-animation-delay: var(--icon-anmt-duration);
+  animation-delay: var(--icon-anmt-duration);
+}
+
+.ui-like input:checked + .like {
+  fill: var(--icon-primary-color);
+  -webkit-animation: like var(--icon-anmt-duration) forwards;
+  animation: like var(--icon-anmt-duration) forwards;
+  -webkit-transition-delay: 0.3s;
+  -o-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.ui-like input:checked + .like::before {
+  -webkit-animation: circle var(--icon-anmt-duration)
+    cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation: circle var(--icon-anmt-duration)
+    cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  -webkit-animation-delay: var(--icon-anmt-duration);
+  animation-delay: var(--icon-anmt-duration);
+}
+
+@-webkit-keyframes like {
+  50% {
+    -webkit-transform: scaleY(0.6);
+    transform: scaleY(0.6);
+  }
+
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+
+@keyframes like {
+  50% {
+    -webkit-transform: scaleY(0.6);
+    transform: scaleY(0.6);
+  }
+
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+
+@-webkit-keyframes circle {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  90% {
+    width: var(--icon-circle-size);
+    height: var(--icon-circle-size);
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes circle {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  90% {
+    width: var(--icon-circle-size);
+    height: var(--icon-circle-size);
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes circles {
+  from {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  to {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes circles {
+  from {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  to {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0;
   }
 }
