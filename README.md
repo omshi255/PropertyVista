@@ -1,5 +1,5 @@
 PropertyVista - Final Full Stack Real Estate Project
-Welcome to PropertyVista, your comprehensive solution for managing real estate listings seamlessly. This project is developed using Django for the backend and React for the frontend. It offers a feature-rich platform to browse, filter, view, and manage property listings, all while ensuring a smooth and engaging user experience.
+<h1>Welcome to PropertyVista, your comprehensive solution for managing real estate listings seamlessly. This project is developed using Django for the backend and React for the frontend. It offers a feature-rich platform to browse, filter, view, and manage property listings, all while ensuring a smooth and engaging user experience.</h1>
 
 Key Features:
 🏠 Property Listings: Display detailed property information including images, prices, locations, and more.
