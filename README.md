@@ -18,7 +18,7 @@ Welcome to **PropertyVista**, your comprehensive solution for managing real esta
 - **Backend**: 
   - **Django** (Python)
   - **Django Rest Framework** for REST APIs
-  - PostgreSQL (or your preferred database)
+  - SQLITE3 (or your preferred database)
 
 - **Frontend**: 
   - **React.js**
