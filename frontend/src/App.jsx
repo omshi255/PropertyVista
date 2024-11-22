@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Exploreproperties from "../components/seeproperties/Exploreproperties";
 import Properties from "../pages/Properties/Properties";
 import Projectgalery from "../pages/Projectsgallery/Projectgalery";
+import About from "../pages/about/About";
 
 
 
@@ -30,7 +31,8 @@ const App = () => {
         <Route path="/profile" element={<HomePage/>}/>
         <Route path ="/exploreproperties" element={<Exploreproperties/>}/>
         <Route path="/properties" element = {<Properties/>} />
-         <Route path="/projectsGallery" element = {<Projectgalery/>} />
+         <Route path="/projectsGallery" element={<Projectgalery/>}/>
+         <Route path="/about" element={<About/>}/>
       </Routes>
 
      

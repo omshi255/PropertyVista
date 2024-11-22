@@ -7,12 +7,12 @@ from .views import ExplorePropertiesViewSet
 from . import views
 from rest_framework.routers import DefaultRouter
 from . views import  RentalPropertyListView
-from .views import PropertyInteriorHomeViewSet
-
+from .views import PropertyInteriorAPIView
+from .views import add_to_favorites, remove_from_favorites
+from .views import ReviewList
 router = DefaultRouter()
 router.register(r'exploreproperties', ExplorePropertiesViewSet)
-router = DefaultRouter()
-router.register(r'gallery', PropertyInteriorHomeViewSet)
+
 
 urlpatterns = [
     
@@ -27,9 +27,8 @@ urlpatterns = [
     path('exploreproperties/', views.get_explore_properties, name='get_explore_properties'),
     path('api/', include(router.urls)),  # This line will map your API routes to the viewset
     path('api/rentalproperties/', RentalPropertyListView.as_view(), name='property-list'),
-    path('api/gallery', include(router.urls)),
-    
-  
-
- 
+    path('api/property-interiors/', PropertyInteriorAPIView.as_view(), name='property-interiors'),
+    path('api/property-interiors/<int:property_id>/add-to-favorites/', add_to_favorites, name='add-to-favorites'),
+    path('api/property-interiors/<int:property_id>/remove-from-favorites/', remove_from_favorites, name='remove-from-favorites'),
+    path('reviews/', ReviewList.as_view(), name='reviews'),
 ]

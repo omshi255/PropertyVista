@@ -40,13 +40,28 @@ class RentalPropertySerializer(serializers.ModelSerializer):
         model = RentalProperty
         fields = '__all__'
 #home interior
+# serializers.py
 from rest_framework import serializers
-from .models import PropertyInteriorHome
+from .models import PropertyInterior
 
-# PropertyInteriorHome serializer
-class PropertyInteriorHomeSerializer(serializers.ModelSerializer):
+class PropertyInteriorSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PropertyInteriorHome
-        fields = ['id', 'title', 'description', 'price', 'location', 'image']
+        model = PropertyInterior
+        fields = '__all__'
+# serializers.py
+from rest_framework import serializers
+from .models import Favorite
 
+class FavoriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Favorite
+        fields = ['id', 'user', 'property']
+        #user review
+from rest_framework import serializers
+from .models import Review
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = '__all__'
 

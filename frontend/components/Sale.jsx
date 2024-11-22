@@ -15,8 +15,8 @@ const SaleSection = () => {
           <p className="details">
             Don't miss out on the best deals for apartments and villas.
           </p>
-          <button class="button-1 type1">
-  <span class="btn-txt">Explore Now</span>
+          <button className="button-1 type1">
+  <span className="btn-txt">Explore Now</span>
 </button>
         </div>
       </div>

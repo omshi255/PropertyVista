@@ -76,9 +76,9 @@ const Userreview = () => {
   return (
     <div>
     <div className="heading-container">
-       <h2 class="heading-title">Dont Trust Us Trust Them</h2>
+       <h2 className="heading-title">Dont Trust Us Trust Them</h2>
        <h3>USER REVIEWS</h3>
-       <div class="underline"></div>
+       <div className="underline"></div>
     
      <div className="reviews-list">
     

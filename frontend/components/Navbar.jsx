@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Link } from "react-router-dom";
-import Auth from '../src/Register';
 import Authen from'./Authen'
 import '../components/Navbar.css';
 import'../components/Auth.css'
+import 'font-awesome/css/font-awesome.min.css';
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [activeForm, setActiveForm] = useState('login'); // Toggle between login/register form
-  const [isLogin,setIsLogin] = useState(false)
+  const [isLogin,setIsLogin] = useState(true)
+  const [username, setUsername] = useState('');
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const togglePopup = () => {
+    
     setIsPopupVisible(!isPopupVisible);
   };
 
@@ -29,9 +32,18 @@ const Navbar = () => {
 
   };
   
+  useEffect(() => {
+    // Check if the user is already logged in
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      setIsLogin(true);
+      setUsername(storedUser.name); // Assume user object has a 'name' property
+    }
+  }, []);
+
   return (
     <nav className="navbar">
-      <div className="logo">Real Estate</div>
+      <div className="logo">PropertyVista</div>
       <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
         {/* <li><a href="#home" className="nav-item">Home</a></li> */}
         <Link to={`/`} className="nav-item">Home</Link>
@@ -44,9 +56,15 @@ const Navbar = () => {
         {!isLogin ? (
           <li><button className="nav-item login-btn" onClick={togglePopup}>Login / Register</button></li>
         ) : (
-          <h4>
-            Logged in / <button onClick={handleLogout} className="nav-item logout-btn">Logout</button>
-          </h4>
+         
+          <li>
+        <i className="fa fa-user-circle" style={{ fontSize: '20px', marginRight: '8px' }}></i> {username}
+      
+              <button onClick={handleLogout} className="nav-item login-btn">
+                Logout
+              </button>
+          
+          </li>
         )}
       </ul>
       <div className="menu-icon" onClick={toggleMenu}>

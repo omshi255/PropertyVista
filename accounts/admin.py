@@ -4,7 +4,7 @@ from .models import SliderProperty
 from .models import PropertyAgent
 from .models import ExploreProperties
 from .models import RentalProperty
-from .models import PropertyInteriorHome
+from .models import PropertyInterior
 admin.site.register(Property)
 admin.site.register(SliderProperty)
 admin.site.register(PropertyAgent)
@@ -14,7 +14,7 @@ class ExplorePropertiesAdmin(admin.ModelAdmin):
 @admin.register(RentalProperty)
 class RentalPropertyAdmin(admin.ModelAdmin):
     list_display = ('title', 'description', 'price', 'location', 'image', 'category', 'owner_name', 'owner_contact', 'created_at')
-@admin.register(PropertyInteriorHome)
-class PropertyInteriorHomeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'price', 'location', 'image')
 
+@admin.register(PropertyInterior)
+class PropertyInteriorAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'price',  'image')

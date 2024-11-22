@@ -164,15 +164,74 @@ class RentalPropertyListView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 #home interiors
 
-from rest_framework import viewsets
+# views.py
+from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.decorators import action
-from .models import PropertyInteriorHome
-from .serializers import PropertyInteriorHomeSerializer
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny
+from .models import PropertyInterior
+from .serializers import PropertyInteriorSerializer
 
-# PropertyInteriorHome viewset to fetch properties
-class PropertyInteriorHomeViewSet(viewsets.ModelViewSet):
-    queryset = PropertyInteriorHome.objects.all()
-    serializer_class = PropertyInteriorHomeSerializer
+class PropertyInteriorAPIView(APIView):
+    permission_classes = [AllowAny]
 
+    def get(self, request):
+        properties = PropertyInterior.objects.all()
+        serializer = PropertyInteriorSerializer(properties, many=True)
+        return Response(serializer.data)
+#fav
+# views.py
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .models import Favorite, PropertyInterior
+from .serializers import FavoriteSerializer
+
+@api_view(['POST'])
+def add_to_favorites(request, property_id):
+    user = request.user  # Get the logged-in user
+    try:
+        property = PropertyInterior.objects.get(id=property_id)
+    except PropertyInterior.DoesNotExist:
+        return Response({'error': 'Property not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    # Check if the property is already in the favorites
+    if Favorite.objects.filter(user=user, property=property).exists():
+        return Response({'message': 'Already in favorites'}, status=status.HTTP_200_OK)
+
+    # Add property to favorites
+    Favorite.objects.create(user=user, property=property)
+    return Response({'message': 'Added to favorites'}, status=status.HTTP_201_CREATED)
+
+@api_view(['DELETE'])
+def remove_from_favorites(request, property_id):
+    user = request.user
+    try:
+        property = PropertyInterior.objects.get(id=property_id)
+    except PropertyInterior.DoesNotExist:
+        return Response({'error': 'Property not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    favorite = Favorite.objects.filter(user=user, property=property).first()
+    if favorite:
+        favorite.delete()
+        return Response({'message': 'Removed from favorites'}, status=status.HTTP_204_NO_CONTENT)
+    return Response({'error': 'Not in favorites'}, status=status.HTTP_400_BAD_REQUEST)
+
+#user reviews
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .models import Review
+from .serializers import ReviewSerializer
+
+class ReviewList(APIView):
+    def get(self, request):
+        reviews = Review.objects.all().order_by('-created_at')  # Latest reviews first
+        serializer = ReviewSerializer(reviews, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = ReviewSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

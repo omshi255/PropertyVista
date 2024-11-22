@@ -1,6 +1,8 @@
 
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';  // Import Toastify styles
 import "../components/Propertycard.css";
 
 const HomePage = () => {
@@ -32,18 +34,41 @@ const HomePage = () => {
   const handleAddToWishlist = (property) => {
     if (!wishlist.find((item) => item.id === property.id)) {
       setWishlist([...wishlist, property]);
-      alert(`${property.title} has been added to your wishlist!`);
+      toast.success(`${property.title} has been added to your wishlist!`, {
+        position: 'top-left',  // Use string instead of `toast.POSITION.TOP_RIGHT`
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeButton: false,
+        style: {
+          width: '600px', 
+          backgroundColor: '#ff7043', 
+          color: 'white', 
+          marginRight: '200px', // Adjusted margin-right here
+        },
+      });
     } else {
-      alert(`${property.title} is already in your wishlist.`);
+      toast.info(`${property.title} is already in your wishlist.`, {
+        position: 'top-left',  // Use string instead of `toast.POSITION.TOP_RIGHT`
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeButton: false,
+        style: {
+          width: '600px', 
+          backgroundColor: '#ffb74d', 
+          color: 'white', 
+          marginRight: '200px', // Adjusted margin-right here
+        },
+      });
     }
   };
+  
 
   const sliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
       { breakpoint: 768, settings: { slidesToShow: 1 } },
@@ -63,7 +88,7 @@ const HomePage = () => {
       </div>
       <Slider {...sliderSettings} className="property-cards-container">
         {properties.map((property) => (
-          <div key={property.id} className="property-card" >
+          <div key={property.id} className="property-card">
             <div className="imgBox">
               <img
                 src={`http://127.0.0.1:8000${property.image}`}
@@ -80,24 +105,31 @@ const HomePage = () => {
               <strong>Location:</strong> {property.location}
             </p>
             <div className="action-buttons">
-          
-             <button
+              <button
                 className="wishlist-button"
                 onClick={() => handleAddToWishlist(property)}
               >
                 Add to Wishlist
               </button>
-              <label class="ui-like">
-    <input type="checkbox"/>
-    <div class="like">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"><path d="M20.808,11.079C19.829,16.132,12,20.5,12,20.5s-7.829-4.368-8.808-9.421C2.227,6.1,5.066,3.5,8,3.5a4.444,4.444,0,0,1,4,2,4.444,4.444,0,0,1,4-2C18.934,3.5,21.773,6.1,20.808,11.079Z"></path></g></svg>
-       </div>
-  </label>
-            
+              <label className="ui-like">
+                <input type="checkbox" />
+                <div className="like">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="">
+                    <g strokeWidth="0" id="SVGRepo_bgCarrier"></g>
+                    <g strokeLinejoin="round" strokeLinecap="round" id="SVGRepo_tracerCarrier"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path d="M20.808,11.079C19.829,16.132,12,20.5,12,20.5s-7.829-4.368-8.808-9.421C2.227,6.1,5.066,3.5,8,3.5a4.444,4.444,0,0,1,4,2,4.444,4.444,0,0,1,4-2C18.934,3.5,21.773,6.1,20.808,11.079Z"></path>
+                    </g>
+                  </svg>
+                </div>
+              </label>
             </div>
           </div>
         ))}
       </Slider>
+
+    
+      <ToastContainer />
     </div>
   );
 };
